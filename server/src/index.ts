@@ -2,10 +2,14 @@ import express, { Application } from "express";
 import morgan from "morgan";
 import cors from "cors";
 
-import indexRoutes from './routes/indexRoutes'
-import postRoutes from './routes/postRoutes'
+import indexRoutes from './routes/indexRoutes';
+import postRoutes from './routes/postRoutes';
 import usuarioController from "./controllers/usuarioController";
 import usuarioRoutes from "./routes/usuarioRoutes";
+import comentariooRoutes from "./routes/comentarioRoutes";
+import comentarioController from "./controllers/comentarioController";
+import com_usuController from "./controllers/com-usuController";
+import com_usuRoutes from "./routes/com-usuRoutes";
 
 class Server {
 
@@ -27,8 +31,10 @@ class Server {
 
     routes(): void{
         this.app.use('/',indexRoutes);
-        this.app.use('/api/posts',postRoutes)
-        this.app.use('/api/usuarios', usuarioRoutes)
+        this.app.use('/api/posts',postRoutes);
+        this.app.use('/api/usuarios', usuarioRoutes);
+        this.app.use('/api/comentarios',comentariooRoutes);
+        this.app.use('/api/comentario/usu/',com_usuRoutes);
     }
 
     start(): void{
