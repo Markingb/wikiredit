@@ -14,6 +14,7 @@ import com_usuRoutes from "./routes/com-usuRoutes";
 import photoRoutes from "./routes/photoRoutes";
 import photoController from "./controllers/photoController";
 import loginRoutes from "./routes/loginRoutes";
+import usu_postRoutes from "./routes/usu_postRoutes";
 
 
 
@@ -46,6 +47,7 @@ class Server {
         this.app.use('/api/comentario/usu/',com_usuRoutes);
         this.app.use('/api/photo/',photoRoutes);
         this.app.use('/api/login/', loginRoutes);
+        this.app.use('/api/post/todos/', usu_postRoutes);
     }
 
     start(): void{

@@ -20,6 +20,7 @@ class LoginController {
                 const { id } = req.params;
                 const dlogin = yield database_1.default.query('SELECT id_usuarios, contrasena FROM usuarios WHERE nick_name = ?', [id]);
                 res.json(dlogin);
+                console.log(dlogin);
             }
             catch (e) {
                 res.json({ text: e.name + e.message });
