@@ -1,6 +1,7 @@
 import express, { Application } from "express";
 import morgan from "morgan";
 import cors from "cors";
+import path from "path";
 
 import indexRoutes from './routes/indexRoutes';
 import postRoutes from './routes/postRoutes';
@@ -10,6 +11,11 @@ import comentariooRoutes from "./routes/comentarioRoutes";
 import comentarioController from "./controllers/comentarioController";
 import com_usuController from "./controllers/com-usuController";
 import com_usuRoutes from "./routes/com-usuRoutes";
+import photoRoutes from "./routes/photoRoutes";
+import photoController from "./controllers/photoController";
+import loginRoutes from "./routes/loginRoutes";
+
+
 
 class Server {
 
@@ -27,6 +33,9 @@ class Server {
         this.app.use(cors());
         this.app.use(express.json());
         this.app.use(express.urlencoded({extended: false}));
+
+        //Para que pueda acceder a las fotos
+        this.app.use('/photo', express.static(path.resolve('photo')));
     }
 
     routes(): void{
@@ -35,6 +44,8 @@ class Server {
         this.app.use('/api/usuarios', usuarioRoutes);
         this.app.use('/api/comentarios',comentariooRoutes);
         this.app.use('/api/comentario/usu/',com_usuRoutes);
+        this.app.use('/api/photo/',photoRoutes);
+        this.app.use('/api/login/', loginRoutes);
     }
 
     start(): void{
