@@ -15,6 +15,8 @@ const com_usuRoutes_1 = __importDefault(require("./routes/com-usuRoutes"));
 const photoRoutes_1 = __importDefault(require("./routes/photoRoutes"));
 const loginRoutes_1 = __importDefault(require("./routes/loginRoutes"));
 const usu_postRoutes_1 = __importDefault(require("./routes/usu_postRoutes"));
+const busquedaRoutes_1 = __importDefault(require("./routes/busquedaRoutes"));
+const likesRoutes_1 = __importDefault(require("./routes/likesRoutes"));
 class Server {
     constructor() {
         this.app = (0, express_1.default)();
@@ -39,6 +41,8 @@ class Server {
         this.app.use('/api/photo/', photoRoutes_1.default);
         this.app.use('/api/login/', loginRoutes_1.default);
         this.app.use('/api/post/todos/', usu_postRoutes_1.default);
+        this.app.use('/api/busqueda/', busquedaRoutes_1.default);
+        this.app.use('/api/like/', likesRoutes_1.default);
     }
     start() {
         this.app.listen(this.app.get('port'), () => {

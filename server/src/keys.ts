@@ -1,8 +1,9 @@
 export default{
     database: {
-        host: 'localhost',
-        user: 'root',
-        password: 'Martinreyes1',
+        host: 'mysql-103653-0.cloudclusters.net',
+        port: "18090",
+        user: 'admin',
+        password: 'papafrita1',
         database: 'wikiredit'
     }
 }

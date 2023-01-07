@@ -8,7 +8,7 @@
   },
   "scripts": {
     "build": "tsc -w",
-    "dev1": "nodemon build/index.js",
+    "dev": "nodemon build/index.js",
     "init": "node index"
   },
   "keywords": [],

@@ -15,6 +15,8 @@ import photoRoutes from "./routes/photoRoutes";
 import photoController from "./controllers/photoController";
 import loginRoutes from "./routes/loginRoutes";
 import usu_postRoutes from "./routes/usu_postRoutes";
+import busquedaRoutes from "./routes/busquedaRoutes";
+import likesRoutes from "./routes/likesRoutes";
 
 
 
@@ -48,6 +50,8 @@ class Server {
         this.app.use('/api/photo/',photoRoutes);
         this.app.use('/api/login/', loginRoutes);
         this.app.use('/api/post/todos/', usu_postRoutes);
+        this.app.use('/api/busqueda/', busquedaRoutes)
+        this.app.use('/api/like/', likesRoutes)
     }
 
     start(): void{
