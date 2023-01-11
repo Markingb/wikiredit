@@ -1,13 +1,13 @@
 import {request, Request, response, Response} from 'express';
 import pool from '../database'
 
-class BusquedaController{
-    public async barradebusqueda (req: Request, res: Response): Promise<void>{
+class CategoriaController{
+    public async busqueda_de_categorias (req: Request, res: Response): Promise<void>{
         try {
             const { cuerpo } = req.body;
             //console.log(cuerpo);
             //console.log(req.body);
-            const resultadobusq = await pool.query('select * from posts Where match(titulo, descripcion, etiquetas, categoria) against (?)', [cuerpo]); 
+            const resultadobusq = await pool.query('select * from posts Where match(categoria) against (?)', [cuerpo]); 
             //= (?),[busq]);
             res.json(resultadobusq);
         } catch (e: any) {
@@ -16,5 +16,5 @@ class BusquedaController{
         
     }
 }
-const busquedaController = new BusquedaController();
-export default busquedaController;
+const categoriaController = new CategoriaController();
+export default categoriaController;

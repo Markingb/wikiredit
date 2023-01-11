@@ -17,6 +17,7 @@ import loginRoutes from "./routes/loginRoutes";
 import usu_postRoutes from "./routes/usu_postRoutes";
 import busquedaRoutes from "./routes/busquedaRoutes";
 import likesRoutes from "./routes/likesRoutes";
+import categoriaRoutes from "./routes/categoriaRoutes";
 
 
 
@@ -52,6 +53,7 @@ class Server {
         this.app.use('/api/post/todos/', usu_postRoutes);
         this.app.use('/api/busqueda/', busquedaRoutes)
         this.app.use('/api/like/', likesRoutes)
+        this.app.use('/api/categoria/', categoriaRoutes);
     }
 
     start(): void{

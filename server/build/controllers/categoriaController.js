@@ -13,14 +13,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const database_1 = __importDefault(require("../database"));
-class BusquedaController {
-    barradebusqueda(req, res) {
+class CategoriaController {
+    busqueda_de_categorias(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const { cuerpo } = req.body;
                 //console.log(cuerpo);
                 //console.log(req.body);
-                const resultadobusq = yield database_1.default.query('select * from posts Where match(titulo, descripcion, etiquetas, categoria) against (?)', [cuerpo]);
+                const resultadobusq = yield database_1.default.query('select * from posts Where match(categoria) against (?)', [cuerpo]);
                 //= (?),[busq]);
                 res.json(resultadobusq);
             }
@@ -30,5 +30,5 @@ class BusquedaController {
         });
     }
 }
-const busquedaController = new BusquedaController();
-exports.default = busquedaController;
+const categoriaController = new CategoriaController();
+exports.default = categoriaController;
