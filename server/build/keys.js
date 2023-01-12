@@ -2,9 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = {
     database: {
-        host: 'mysql-103653-0.cloudclusters.net',
-        port: "18090",
-        user: 'admin',
+        host: 'mysql-104650-0.cloudclusters.net',
+        port: "10046",
+        user: 'root',
         password: 'papafrita1',
         database: 'wikiredit'
     }
